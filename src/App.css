@@ -1,38 +1,55 @@
-.App {
+.app {
+  font-family: Arial, sans-serif;
+  padding: 16px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1 {
+  margin-bottom: 16px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Scrollable area */
+.flags-grid-wrapper {
+ max-height: 700px;         /* keep vertical scroll to reveal more flags */
+  overflow-y: auto;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  padding: 12px;
+  margin: 0 auto;
+  /* widen enough to comfortably fit 7 items + gaps */
+  max-width: 1400px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* 7 per row */
+.flags-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);  /* <<< seven columns */
+  gap: 20px;
+}
+
+/* each cell */
+.flag-card {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 8px;
+  padding: 8px;
+  border-radius: 8px;
+  background: #fafafa;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
 }
 
-.App-link {
-  color: #61dafb;
+/* keep flags neat and consistent */
+.flag-card img {
+  width: 100%;
+  aspect-ratio: 4 / 3;        /* consistent box for all flags */
+  object-fit: contain;        /* no cropping */
+  display: block;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* name text */
+.country-name {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.2;
 }
